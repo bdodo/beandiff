@@ -9,10 +9,10 @@ import java.util.List;
 import java.util.logging.Logger;
 
 /**
- * @author tonior@gmail.com
+ * @author ttchiwandire@gmail.com
  */
-class ObjectUtils {
-    private static final Logger logger = Logger.getLogger(ObjectUtils.class.getSimpleName());
+class DiffUtils {
+    private static final Logger logger = Logger.getLogger(DiffUtils.class.getSimpleName());
 
     /**
      * Reflectively attempts to access a field.
@@ -63,7 +63,7 @@ class ObjectUtils {
      * @see Class#getSuperclass()
      */
     public static List<Field> getAllFields(Class objectClass) {
-        List<Field> returnValue = new ArrayList<Field>();
+        List<Field> returnValue = new ArrayList<>();
         for (Class c = objectClass; c != null; c = c.getSuperclass()) {
             returnValue.addAll(Arrays.asList(c.getDeclaredFields()));
         }
