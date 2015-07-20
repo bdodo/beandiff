@@ -1,5 +1,6 @@
 package com.perago.test;
 
+import java.util.List;
 import java.util.Map;
 
 public class Test {
@@ -26,13 +27,17 @@ public class Test {
 		System.out.println("simpleTest Diff");
 		printDiff(diff);
 	
-		//a = de.apply(a, diff);
+		a = de.apply(a, b);
 	
         System.out.println("a == b : " + a.equals(b));
 	}
 
-    private static void printDiff(Map<String, String> diffs) {
+    private static void printDiff(Map<String, Object> diffs) {
         for (String key : diffs.keySet()) {
+            if(diffs.get(key) instanceof List){
+                List list = (List) diffs.get(key);
+                System.out.println(list.get(0) + key + " was [" + list.get(1)+"] now ["+ list.get(2)+"]");
+            }else
             System.out.println(key + " = " + diffs.get(key));
         }
     }
